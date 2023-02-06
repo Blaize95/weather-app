@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Assets/style.css">
+</head>
+<body>
+    <header>
+        <h1>Weather Dashboard</h1>
+    </header>
+    <main>
+        <aside class="sidebar">
+            <form class="search-container">
+                <h2>Search for a City:</h2>
+                <input id="search-input" type="text" placeholder="Brisbane">  
+                <button class="search-btn">Search</button>
+            </form>
+            <div id="searched-location">
+            
+
+            </div>
+        </aside>
+
+        <section class="current-weather">
+            <div class="search-result">
+                <h2><span id="city-name"></span><span id="current-day"></span><span id="weather-icon"></span></h2>
+                <p>Temp: <span id="temp"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Humidity: <span id="hum"></span></p>
+            </div>
+            <div id="forecast"></div>
+        </section>
+    </main> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    
+</body>
+    
+</html>
