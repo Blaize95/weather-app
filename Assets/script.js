@@ -19,8 +19,10 @@ searchBtn.addEventListener('click', function() {
     var city = cityName.value;
     console.log(city);
     if (city !== "") {var recentSearches = document.createElement("button");
-    recentSearches.innerHTML = city;
+    recentSearches.setAttribute("id", "searched-button");
+    recentSearches.innerHTML = city.charAt(0).toUpperCase() + city.slice(1);
     searchedLocation.appendChild(recentSearches)};
+    localStorage.setItem("city", city);
     //Api call
     fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
         .then(function(response) {
@@ -55,8 +57,9 @@ function weatherData(data) {
     currentIcon.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherSymbol + "@2x.png");
     weatherIcon.append(currentIcon);
     
+
     resultCity.innerHTML = cityNameResult;
-    currentTemp.innerHTML = tempResult + "°C";
+    currentTemp.innerHTML = (tempResult-270).toFixed(2) + "°C";
     currentWind.innerHTML = windResult + "km/h";
     currentHum.innerHTML = humResult + "%";
  
@@ -77,7 +80,6 @@ function fiveDayForecast(data) {
         var wind = data.list[i].wind.speed;
         var hum = data.list[i].main.humidity;
         var icon = data.list[i].weather[0].icon;
-        console.log(icon);
         console.log(middayForecast);
         count++;
         if (count === 5) break;
@@ -101,7 +103,7 @@ function fiveDayForecast(data) {
         //Temp
         var forecastTemp = document.createElement("p");
         forecastWeather.append(forecastTemp);
-        forecastTemp.innerHTML = "Temp: " + temp + "°C";
+        forecastTemp.innerHTML = "Temp: " + (temp-270).toFixed(2) + "°C";
 
         //Wind
         var forecastWind = document.createElement("p");
@@ -112,10 +114,11 @@ function fiveDayForecast(data) {
         var forecastHum = document.createElement("p");
         forecastWeather.append(forecastHum);
         forecastHum.innerHTML = "Humidity: " + hum + "%";
+
     }
 }
 
-        
+
 
 
 
