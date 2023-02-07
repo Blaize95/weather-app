@@ -43,7 +43,7 @@ searchBtn.addEventListener('click', function() {
             localStorage.setItem("cities", JSON.stringify(storedCities));
         }
     //Api call
-    fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
+    fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
         .then(function(response) {
             response.json().then(function(data) {
             var lat = data[0].lat;
@@ -51,7 +51,7 @@ searchBtn.addEventListener('click', function() {
             console.log(lat);            
             console.log(lon);  
             
-            return fetch("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey)
+            return fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + apiKey)
             })
                 .then(function(response) {
                     response.json().then(function(data) {
