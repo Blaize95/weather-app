@@ -15,9 +15,9 @@
     <main>
         <aside class="sidebar">
             <form class="search-container">
-                <h2>Search for a City:</h2>
-                <input id="search-input" type="text" placeholder="Brisbane">  
-                <button class="search-btn">Search</button>
+                <h2>Search for a City</h2>
+                <input id="search-input" type="text" placeholder="Enter City Name:">  
+                <button id="search-btn">Search</button>
             </form>
             <div id="searched-location">
             
@@ -27,16 +27,19 @@
 
         <section class="current-weather">
             <div class="search-result">
-                <h2><span id="city-name"></span><span id="current-day"></span><span id="weather-icon"></span></h2>
+                <h2><span id="city-name"></span><span id="current-day"></span><span id="weather-icon" class="weatherclass"></span></h2>
                 <p>Temp: <span id="temp"></span></p>
                 <p>Wind: <span id="wind"></span></p>
                 <p>Humidity: <span id="hum"></span></p>
             </div>
-            <div id="forecast"></div>
+        </section>    
+            <div id="forecast" class="forecast">
+
+            </div>
         </section>
     </main> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-    
+    <script src="/Assets/script.js"></script>
 </body>
-    
+ 
 </html>

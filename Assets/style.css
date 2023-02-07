@@ -6,7 +6,7 @@ header {
     display: inline-block;
     width: 100%;
     height: 100px;
-    background-image: linear-gradient(90deg, rgb(125, 168, 204) 0%, rgb(63, 63, 199) 41%, rgb(25, 19, 136) 100%);
+    background-image: linear-gradient(90deg, rgb(125, 168, 204) 0%, rgb(63, 63, 199) 50%, rgb(25, 19, 136) 100%);
     text-align: center;
     color: white;
 }
@@ -19,7 +19,7 @@ header {
 
 .search-container {
     width: 280px;
-    margin-left: 10px;
+    margin-left: 0px;
     border-bottom: 1px solid black;
 }
 
@@ -27,16 +27,27 @@ header {
     width: 100%;
 }
 
-.search-btn {
+#search-btn {
     width: 100%;
 }
 
+#searched-location button {
+    width: 100%;
+}
+
+
 .current-weather {
+    display: flex;
+    float: right;
+    margin-right: 50px;
+    width: 1500px;
     margin-top: 50px;
 }
 
 .search-result {
+    width: 1500px;
     border: solid 1px black;
+    padding-left: 5px;
 }
 
 #city-name {
@@ -48,16 +59,31 @@ header {
 }
 
 .forecast {
+    width: 1500px;
     display: flex;
+    float: right;
+    margin-right: 50px;
     justify-content: space-between;
 }
 
 .forecast-box {
+    margin-top: 10px;
     border: 1px solid black;
-    width: 200px;
-    justify-content: space-around;
+    width: 300px;
+    height: 300px;
     padding: 10px;
-    color: white;
+    color: rgb(255, 255, 255);
+    background-image: linear-gradient(130deg, rgb(115, 115, 139) 0%, rgb(89, 89, 163) 50%, rgb(94, 88, 209) 100%);
+}
+
+#forecast-date {
+    text-align: center;
+    margin-top: 0px;
+    
+}
+
+.weatherclass {
+    position: absolute;
 }
 
 
