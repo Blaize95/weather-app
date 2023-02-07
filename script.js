@@ -14,6 +14,16 @@ var forecast = document.getElementById("forecast");
 //current day
 var currentDay = moment().format("MMM Do YYYY");  
 
+window.onload = function() {
+    var storedCities = JSON.parse(localStorage.getItem("cities")) || [];
+    for (var i = 0; i < storedCities.length; i++) {
+      var recentSearches = document.createElement("button");
+      recentSearches.setAttribute("id", "searched-button");
+      recentSearches.innerHTML = storedCities[i].charAt(0).toUpperCase() + storedCities[i].slice(1);
+      searchedLocation.appendChild(recentSearches);
+    }
+  };
+
 //Fetch coords from 1st API and pass them to weather API to retrieve data
 searchBtn.addEventListener('click', function() {
     var city = cityName.value;
@@ -22,7 +32,16 @@ searchBtn.addEventListener('click', function() {
     recentSearches.setAttribute("id", "searched-button");
     recentSearches.innerHTML = city.charAt(0).toUpperCase() + city.slice(1);
     searchedLocation.appendChild(recentSearches)};
-    localStorage.setItem("city", city);
+    var storedCities = localStorage.getItem("cities");
+        if (storedCities) {
+            storedCities = JSON.parse(storedCities);
+        } else {
+            storedCities = [];
+        }
+        if (!storedCities.includes(city)) {
+            storedCities.push(city);
+            localStorage.setItem("cities", JSON.stringify(storedCities));
+        }
     //Api call
     fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&appid=" + apiKey)
         .then(function(response) {
